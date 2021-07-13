@@ -74,7 +74,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(120deg);
+  transform: translate(-50%, -50%) rotate(160deg);
   transform-origin: bottom center;
 }
 
@@ -115,6 +115,6 @@ body {
   }
 
   100% {
-    transform: translate(-50%, -50%) rotate(-120deg);
+    transform: translate(-50%, -50%) rotate(-160deg);
   }
 }
