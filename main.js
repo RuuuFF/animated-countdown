@@ -3,6 +3,8 @@ const Countdown = {
   counter: document.querySelector('.counter'),
   finalMessage: document.querySelector('.final'),
   replay: document.querySelector('#replay'),
+  form: document.querySelector('form'),
+  timerEl: document.querySelector('#timer'),
   
   nums: null,
   count: 3,
@@ -51,8 +53,20 @@ const Countdown = {
     Countdown.runAnimation(Countdown.nums)
   },
 
+  formSubmit(event) {
+    event.preventDefault()
+    Countdown.count = Countdown.timerEl.value
+    Countdown.createCounterEl()
+
+    if (Countdown.finalMessage.classList.contains('show')) {
+      Countdown.counter.classList.remove('hide')
+      Countdown.finalMessage.classList.remove('show')
+    }
+  },
+
   start() {
     Countdown.createCounterEl()
+    Countdown.form.addEventListener('submit', event => Countdown.formSubmit(event))
     Countdown.replay.addEventListener('click', () => Countdown.reset(Countdown.nums))
   }
 }
