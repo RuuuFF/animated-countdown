@@ -31,12 +31,13 @@ const Countdown = {
         } else {
           Countdown.counter.classList.add('hide')
           Countdown.finalMessage.classList.add('show')
+          Countdown.replay.focus()
         }
       })
     })
   },
 
-  createCounterEl() {
+  createNums() {
     Countdown.container.innerHTML = ''
 
     for (Countdown.count; Countdown.count >= 0; Countdown.count--) {
@@ -56,7 +57,7 @@ const Countdown = {
   formSubmit(event) {
     event.preventDefault()
     Countdown.count = Countdown.timerEl.value
-    Countdown.createCounterEl()
+    Countdown.createNums()
 
     if (Countdown.finalMessage.classList.contains('show')) {
       Countdown.counter.classList.remove('hide')
@@ -65,7 +66,7 @@ const Countdown = {
   },
 
   start() {
-    Countdown.createCounterEl()
+    Countdown.createNums()
     Countdown.form.addEventListener('submit', event => Countdown.formSubmit(event))
     Countdown.replay.addEventListener('click', () => Countdown.reset(Countdown.nums))
   }
